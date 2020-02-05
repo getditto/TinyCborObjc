@@ -41,6 +41,7 @@
 #include <string.h>
 
 #import <Foundation/NSData.h>
+#import <Foundation/NSString.h>
 
 NSString * const DSCborBase64DataMarker = @"___DS_CBOR_BASE64___";
 

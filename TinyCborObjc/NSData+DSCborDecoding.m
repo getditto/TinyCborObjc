@@ -17,7 +17,7 @@
 
 #import "NSData+DSCborDecoding.h"
 
-#import <tinycbor/cbor.h>
+#import "cbor.h"
 
 #import "cbortojson_nsstring.h"
 
@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *jsonError = nil;
     id parsedData = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                    options:NSJSONReadingMutableContainers
+                                                    options:NSJSONReadingMutableContainers | NSJSONReadingFragmentsAllowed
                                                       error:&jsonError];
     [self convertBase64DataToNSData:parsedData];
     if (jsonError != nil && error != NULL) {
